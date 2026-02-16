@@ -405,6 +405,83 @@
             max-width: 92vw;
             text-align: center;
         }
+
+        /* Mobile fix */
+        @media (max-width: 520px) {
+
+            /* Prevent notch overlap and give safe top space */
+            body {
+                padding-top: env(safe-area-inset-top);
+            }
+
+            .wrap {
+                width: 94vw;
+                margin: 14px auto 40px;
+            }
+
+            .hero {
+                padding: 18px 14px 10px;
+            }
+
+            .title {
+                font-size: 34px;
+                line-height: 1.1;
+                margin: 10px 0 6px;
+            }
+
+            .sub {
+                width: 100%;
+                padding: 0 6px;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+                padding: 12px;
+                gap: 12px;
+            }
+
+            .panel {
+                padding: 12px;
+            }
+
+            .photoBox {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                text-align: center;
+            }
+
+            /* Make image responsive and not overflow */
+            .avatar {
+                width: 100%;
+                max-width: 92vw;
+                height: auto;
+                aspect-ratio: 4 / 5;
+                border-radius: 22px;
+            }
+
+            .avatar img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+
+            /* Buttons stack nicely */
+            .btns {
+                justify-content: center;
+            }
+
+            button {
+                width: 100%;
+            }
+
+            /* Map stays clean on small screens */
+            .map {
+                aspect-ratio: 16 / 12;
+            }
+        }
     </style>
 </head>
 
@@ -491,7 +568,7 @@
                     </div>
 
                     <div style="margin-top: 10px; color: var(--muted); font-size: 12px; line-height: 1.6;">
-                        Add to calendar downloads a simple ics file on your device
+
                     </div>
                 </div>
             </div>
