@@ -303,9 +303,19 @@
 
         .kv {
             display: grid;
-            gap: 10px;
+            grid-template-columns: 1fr 1fr;
+            /* Date left, Time right */
+            gap: 12px;
             margin-top: 14px;
         }
+
+        /* On very small screens, stack again */
+        @media (max-width: 420px) {
+            .kv {
+                grid-template-columns: 1fr;
+            }
+        }
+
 
         .row {
             display: flex;
@@ -480,6 +490,32 @@
             /* Map stays clean on small screens */
             .map {
                 aspect-ratio: 16 / 12;
+            }
+        }
+
+        /* Force date and time side by side */
+        .kv {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 12px !important;
+            margin-top: 14px !important;
+        }
+
+        /* Make each card fit inside its grid cell */
+        .kv .row {
+            width: 100% !important;
+            align-items: center !important;
+        }
+
+        /* Allow the text part to shrink and not overflow */
+        .kv .row>div:last-child {
+            min-width: 0 !important;
+        }
+
+        /* If screen is too small, stack again */
+        @media (max-width: 380px) {
+            .kv {
+                grid-template-columns: 1fr !important;
             }
         }
     </style>
